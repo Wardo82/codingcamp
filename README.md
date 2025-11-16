@@ -1,2 +1,3 @@
 # Coding Camp
-![Gorilla Coding](gorilla.jpg)
+
+Code repository for examples, experiments and practice code.
