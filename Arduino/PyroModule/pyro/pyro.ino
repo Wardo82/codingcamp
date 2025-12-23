@@ -14,5 +14,5 @@ void loop() {
     printAllAnalogPins(pins);
     Serial.println();
     readAllDriverRegisters();
-    delay(1000);
+    delay(4000);
 }

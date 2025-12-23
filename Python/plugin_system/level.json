@@ -1,0 +1,26 @@
+{
+  "plugins": [
+    "plugins.bard",
+    "plugins.sorcerer",
+    "plugins.witcher",
+    "plugins.wizard"
+  ],
+  "characters": [
+    {
+      "type": "wizard",
+      "name": "Stregobor"
+    },
+    {
+      "type": "sorcerer",
+      "name": "Gergobor"
+    },
+    {
+      "type": "witcher",
+      "name": "Rorgobor"
+    },
+    {
+      "type": "bard",
+      "name": "Zarrgobor"
+    }
+  ]
+}

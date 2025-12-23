@@ -1,4 +1,4 @@
-# Creating driver files for DRV8244-Q1: drv8244.h and drv8244.c
+/*# Creating driver files for DRV8244-Q1: drv8244.h and drv8244.c
 from pathlib import Path
 h = r"""\
 // drv8244.h
