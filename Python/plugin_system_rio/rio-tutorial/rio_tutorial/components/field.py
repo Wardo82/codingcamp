@@ -10,7 +10,7 @@ from .. import components as comps
 
 class Field(rio.Component):
     value: t.Literal["X", "O", ""]
-
+    dim: bool
     on_press: rio.EventHandler[[]] = None
 
     def build(self) -> rio.Component:
@@ -34,6 +34,9 @@ class Field(rio.Component):
             color = rio.Color.BLUE
             icon = "material/circle"
 
+        if self.dim:
+            color = color.replace(opacity=0.2)
+            
         return rio.Icon(
             icon=icon,
             fill=color,
