@@ -20,11 +20,15 @@ theme = rio.Theme.from_colors(
     mode="light",
 )
 
-
+def build() -> rio.Component:
+    return rio.Column(
+        comps.NavigationBar(),
+        rio.PageView(grow_y=True)
+    )
 # Create the Rio app
 app = rio.App(
+    build=build,
     name='rio-tutorial',
     theme=theme,
     assets_dir=Path(__file__).parent / "assets",
 )
-

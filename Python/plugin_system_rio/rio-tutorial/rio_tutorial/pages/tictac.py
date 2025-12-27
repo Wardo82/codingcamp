@@ -10,7 +10,7 @@ from .. import components as comps
 
 @rio.page(
     name="Tic Tac Toe",
-    url_segment="",
+    url_segment="tictac",
 )
 class TicTacToePage(rio.Component):
     fields: list[t.Literal["X", "O", ""]] = [""] * 9
