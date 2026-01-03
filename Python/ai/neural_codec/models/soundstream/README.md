@@ -19,6 +19,36 @@ SoundStream is a fully end-to-end neural audio codec that can compress speech, m
 
 The system uses a fully convolutional U-Net structure with strided convolutions for downsampling and transposed convolutions for upsampling. A residual vector quantizer (RVQ) between encoder and decoder discretizes the latent space while maintaining reconstruction fidelity. ***Crucially, SoundStream introduced structured dropout during training, enabling a single model to operate across multiple bitrates (3-18 kbps) without quality degradation.***
 
+## Residual vector quantizer (RVQ)
+
+Allows to store and transmit information efficiently. It has it roots in Vector Quantization, used to make models smaller (from float32 to int8 for example) and more "efficient", with some trade-offs.
+
+In the Soundstream papaer, the Quantizer takes 75 vectors of audio embeddings with 128 elements where, during traninig, it learns to quantize it efficiently and pass it over to the decoder for reconstruction.
+
+### Codebook quantization
+
+Learn a set of possible vectors that cover the entire embedding space. The goal is the to assing each embedding to the closest codebook and store its index. This is not very precise as it introduces many errors during quantization.
+
+Residual vector quantization consist of iteratively running this codebook assignment on the vector embeddings.
+
+[TODO] Add picture and algorithm of RVQ
+[TODO] Add unit tests
+
+The number of iterations of the RVQ determines the bitrate. 
+As an example, the model inputs 75 frames per second to the RVQ. The RVQ makes two iterations for an output of 2 indices. All in all, the RVQ has 1024 codebook entries, that means, it tries to learn a representation of the embeddings with 1024 fixed vectors that can be represented with 10 bits per entry. 
+As a result, the model runs at 75 frames * 2 iterations * 10 bits = 1.5kbps
+
+### Learning the codebook vectors
+
+Learning the codebook can be done by a trained encoder and using K-Means to cluster the embeddings. The centroid of the cluster determines the point where the "minimum distance" will be computed for assigning a new embedding to a codebook.
+
+[TODO] Study again the loss of this quantizer
+
+- Codebook update: Exponential moving average with decay 0.99
+- Commitment loss: Incentivices the encoder to encode into the codebooks of the RVQ. (Wouldn't this be counter productive? par de locos going in the wrong direction?)
+- [TODO not sure how this worked] Random restarts: Helps have codewords that are actually used by the encoding process of the samples. Sometimes a codebook exists where no sample is mapped to. 
+
+
 ## Training Methodology
 
 SoundStream combines adversarial training with multi-resolution spectral losses:
@@ -42,7 +72,7 @@ The results are impressive:
 ## References
 
 [1] SoundStream: An End-to-End Neural Audio Codec - Paper: https://arxiv.org/abs/2107.03312 | Video: https://www.youtube.com/watch?v=V4jj-yhiclk&ab_channel=RISEResearchInstitutesofSweden
-
+[2]  Residual Vector Quantization for Audio and Speech Embeddings https://www.youtube.com/watch?v=Xt9S74BHsvc
 
 ## TODOs
 
