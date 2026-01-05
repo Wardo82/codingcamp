@@ -1,3 +1,6 @@
 [submodule "Python/ecc"]
 	path = Python/ecc
 	url = git@github.com:Wardo82/ecc.git
+[submodule "Python/ai"]
+	path = Python/ai
+	url = git@github.com:Wardo82/ai.git
