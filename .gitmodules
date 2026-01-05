@@ -1,0 +1,3 @@
+[submodule "Python/ecc"]
+	path = Python/ecc
+	url = git@github.com:Wardo82/ecc.git
