@@ -14,7 +14,7 @@ Let
 - x:    current value (known)
 - x*:   minimum (unknown)
 
-The primary condition is that the function must be continuous, differentiable, and convex. The function’s gradient also needs to satisfy the requirements for Lipschitz continuity. This means that there should be a value k, such that the derivative f'(x) in its absolute value should always be lower than k.
+The primary condition is that the function f(x) must be continuous, differentiable, and convex. The function’s gradient also needs to satisfy the requirements for Lipschitz continuity. This means that there should be a value k, such that the derivative f'(x) in its absolute value should always be lower than k.
 
 If we meet these conditions, we can then compute the gradient \nabla f(\theta) of the function. Then, according to its sign, we update the parameters in the direction that decreases the cost function.
 
@@ -32,8 +32,8 @@ So by the first derivative we find delta(x) that minimizes f(x+delta(x)).
 
     grad(f(x+delta(x))) = 0 # Gradient w.r.t to delta(x)
     grad(f(x) + grad(f(x))'delta(x) + delta(x)' hessian(f(x)) delta(x)) = 0
-    grad(f(x)) + hesisan(f(x)) delta(x) = 0
-    delta(x) = - grad(f(x)) / hessian(f(x))1
+    grad(f(x)) + hessian(f(x)) delta(x) = 0
+    delta(x) = - grad(f(x)) / hessian(f(x))
 
 The update rule during iteration k becomes:
 
