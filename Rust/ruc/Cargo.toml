@@ -1,0 +1,12 @@
+[package]
+name = "ruc"
+version = "0.1.0"
+edition = "2024"
+description = "A helper app to learn languages while watching series and movies"
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.7", features = ["derive"] }
+lindera = { version = "6.0.0", features = ["embed-ipadic"] }
+walkdir = "2.5.0"
+zip = "8.6.0"
