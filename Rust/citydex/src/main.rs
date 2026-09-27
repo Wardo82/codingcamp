@@ -4,7 +4,6 @@ pub mod city;
 pub mod components;
 pub mod db;
 
-use city::City;
 use components::eventcard::EventCard;
 use components::herocard::HeroCard;
 use db::hardcoded::load_cities;
@@ -21,6 +20,7 @@ fn App() -> Element {
         document::Stylesheet { href: asset!("/assets/styles/base.css") }
         document::Stylesheet { href: asset!("/assets/styles/card.css") }
         document::Stylesheet { href: asset!("/assets/styles/layout.css") }
+        document::Stylesheet { href: asset!("/assets/styles/popup.css") }
         document::Stylesheet { href: asset!("/assets/styles/variables.css")}
 
         div { id: "title",
@@ -31,7 +31,9 @@ fn App() -> Element {
 
             for city in cities {
                 HeroCard {
-                    city: city.clone()
+                    title: city.name.clone(),
+                    location: city.country.clone(),
+                    image: city.image.clone(),
                 }
                 EventCard {
                     title: city.name,
