@@ -1,0 +1,23 @@
+/* Variables: Everything configurable lives here */
+:root {
+    --bg: #f4f4f4;
+    --surface: #ffffff;
+    --text: #111111;
+    --text-muted: #888888;
+
+    --radius-lg: 28px;
+    --radius-md: 18px;
+
+    --shadow:
+        0 12px 30px rgba(0,0,0,0.12);
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+
+    --card-width: 320px;
+    --card-height: 580px;
+
+    --transition: 0.2s ease;
+}
