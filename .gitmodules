@@ -4,3 +4,6 @@
 [submodule "Python/ai"]
 	path = Python/ai
 	url = git@github.com:Wardo82/ai.git
+[submodule "Rust/rusts4/python/annotated-s4"]
+	path = Rust/rusts4/python/annotated-s4
+	url = https://github.com/srush/annotated-s4.git

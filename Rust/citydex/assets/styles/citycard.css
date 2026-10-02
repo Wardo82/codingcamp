@@ -1,0 +1,36 @@
+.city-card {
+    display: flex;
+    gap: 2rem;
+    background: #0d1117;
+    border-radius: 24px;
+    padding: 2rem;
+    color: white;
+}
+
+.city-info {
+    flex: 1;
+}
+
+.city-country {
+    color: #9ca3af;
+}
+
+.city-title {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+}
+
+.city-description {
+    color: #cbd5e1;
+    max-width: 500px;
+}
+
+.city-image-container {
+    flex: 1;
+}
+
+.city-image {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
